@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinesh Mandal - Photo Frame</title>
+    <title>Daroga Dinesh Mandal - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -13,10 +13,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
             overflow-x: hidden;
         }
 
@@ -32,200 +30,307 @@
 
         .particle {
             position: absolute;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
-            animation: float 15s infinite;
+            animation: float 20s infinite;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            25% { transform: translateY(-100px) translateX(50px); }
-            50% { transform: translateY(-200px) translateX(-50px); }
-            75% { transform: translateY(-100px) translateX(100px); }
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            33% { transform: translateY(-120px) translateX(80px) rotate(120deg); }
+            66% { transform: translateY(-80px) translateX(-80px) rotate(240deg); }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
             position: relative;
             z-index: 1;
         }
 
         header {
             text-align: center;
+            padding: 60px 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .profile-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+            margin-bottom: 30px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
             margin-bottom: 40px;
-            animation: fadeInDown 0.8s ease-out;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .photo-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            flex-shrink: 0;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 100%;
+            border: 8px solid #FFD700;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: white;
+            background: url('YOUR_GOOGLE_DRIVE_DIRECT_LINK_HERE') center/cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .profile-info {
+            flex: 1;
+            text-align: left;
+            min-width: 300px;
         }
 
         h1 {
-            color: white;
             font-size: 3em;
+            color: #1e3c72;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             font-weight: 700;
         }
 
-        .tagline {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2em;
-            font-weight: 300;
+        .designation {
+            font-size: 1.5em;
+            color: #2a5298;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .main-content {
-            background: rgba(255, 255, 255, 0.95);
+        .tagline {
+            font-size: 1.2em;
+            color: #666;
+            font-style: italic;
+            padding: 15px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            border-left: 5px solid #f5576c;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.98);
             border-radius: 30px;
             padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out 0.5s backwards;
         }
 
-        .upload-section {
-            text-align: center;
-            margin-bottom: 40px;
+        h2 {
+            font-size: 2em;
+            color: #1e3c72;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FFD700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .upload-area {
-            border: 3px dashed #667eea;
+        .icon {
+            font-size: 1.3em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
             border-radius: 20px;
-            padding: 60px 40px;
-            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .upload-area:hover {
-            border-color: #764ba2;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .upload-area::before {
+        .skill-card::before {
             content: '';
             position: absolute;
             top: -50%;
-            left: -50%;
+            right: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
             transform: rotate(45deg);
-            animation: shine 3s infinite;
+            transition: all 0.5s ease;
         }
 
-        @keyframes shine {
-            0% { left: -50%; }
-            100% { left: 150%; }
+        .skill-card:hover::before {
+            right: -200%;
         }
 
-        .upload-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-            color: #667eea;
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
         }
 
-        .upload-text {
-            font-size: 1.3em;
-            color: #333;
+        .skill-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-desc {
+            font-size: 1.05em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        .upload-subtext {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        #fileInput {
-            display: none;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
+        .stat-label {
             font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-            margin: 10px;
+            opacity: 0.9;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        .quote-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 30px;
+            border-left: 8px solid #f5576c;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .btn:active {
-            transform: translateY(-1px);
-        }
-
-        .frame-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .frame-option {
-            border: 3px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
+        .quote {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #333;
+            line-height: 1.8;
+            text-align: center;
             position: relative;
         }
 
-        .frame-option:hover {
-            transform: scale(1.05);
-            border-color: #667eea;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        .quote::before {
+            content: '"';
+            font-size: 3em;
+            color: #f5576c;
+            position: absolute;
+            left: -20px;
+            top: -10px;
         }
 
-        .frame-option.selected {
-            border-color: #667eea;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf5 100%);
+        .achievements-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .frame-preview {
-            width: 100%;
-            height: 150px;
-            border: 10px solid;
-            border-radius: 10px;
+        .achievement-item {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(132, 250, 176, 0.3);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.8em;
-            color: #999;
+            gap: 20px;
+            transition: all 0.3s ease;
         }
 
-        .frame-name {
-            text-align: center;
-            margin-top: 10px;
-            font-weight: 600;
+        .achievement-item:hover {
+            transform: translateX(10px);
+        }
+
+        .achievement-icon {
+            font-size: 2.5em;
+            flex-shrink: 0;
+        }
+
+        .achievement-text {
+            font-size: 1.1em;
             color: #333;
+            line-height: 1.6;
         }
 
-        #photoCanvas {
-            max-width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            margin: 30px auto;
-            display: none;
-        }
-
-        .controls {
+        footer {
             text-align: center;
-            margin-top: 30px;
+            color: white;
+            padding: 40px 20px;
+            font-size: 1.1em;
         }
 
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-50px);
             }
             to {
                 opacity: 1;
@@ -236,7 +341,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -244,25 +349,27 @@
             }
         }
 
-        .footer {
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-            padding: 20px;
-            font-size: 0.9em;
-        }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
             }
 
-            .main-content {
-                padding: 20px;
+            .profile-section, .section {
+                padding: 25px;
             }
 
-            .upload-area {
-                padding: 40px 20px;
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+
+            .photo-container {
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
@@ -271,194 +378,178 @@
     <div class="particles" id="particles"></div>
     
     <div class="container">
-        <header>
-            <h1>✨ Dinesh Mandal ✨</h1>
-            <p class="tagline">अपनी फोटो को खूबसूरत फ्रेम में सजाएं</p>
-        </header>
-
-        <div class="main-content">
-            <div class="upload-section">
-                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-                    <div class="upload-icon">📸</div>
-                    <div class="upload-text">अपनी फोटो अपलोड करें</div>
-                    <div class="upload-subtext">या यहाँ क्लिक करें</div>
+        <div class="profile-section">
+            <div class="profile-header">
+                <div class="photo-container">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">👮</div>
+                    </div>
+                    <div class="badge">⭐ सम्मानित</div>
                 </div>
-                <input type="file" id="fileInput" accept="image/*">
+                
+                <div class="profile-info">
+                    <h1>दरोगा दिनेश मंडल</h1>
+                    <div class="designation">🎖️ बिहार पुलिस के होनहार दरोगा</div>
+                    <div class="tagline">
+                        "बुद्धिमत्ता और चातुर्य का अद्भुत संगम"
+                    </div>
+                </div>
             </div>
 
-            <h2 style="text-align: center; color: #333; margin-bottom: 20px;">फ्रेम चुनें</h2>
+            <div class="quote-section">
+                <div class="quote">
+                    घर बैठे भी लड़की बरामद करने की क्षमता रखने वाले अद्वितीय दरोगा, जिनकी आवाज़ सुनकर अपराधी मैदान छोड़ भाग जाते हैं
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🏆</span> विशेष विशेषताएं</h2>
             
-            <div class="frame-gallery">
-                <div class="frame-option selected" data-frame="classic">
-                    <div class="frame-preview" style="border-color: #8B4513;">
-                        Classic
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-title">🔍 लड़की बरामद करने में महारत</div>
+                    <div class="skill-desc">
+                        असाधारण खोजी क्षमता के साथ, घर बैठे भी केस सुलझाने की अद्भुत प्रतिभा। इनकी चातुर्य और बुद्धिमत्ता अतुलनीय है।
                     </div>
-                    <div class="frame-name">Classic Wood</div>
                 </div>
 
-                <div class="frame-option" data-frame="gold">
-                    <div class="frame-preview" style="border-color: #FFD700;">
-                        Gold
+                <div class="skill-card">
+                    <div class="skill-title">🎯 स्मार्ट और इंटेलिजेंट</div>
+                    <div class="skill-desc">
+                        हर परिस्थिति में अपनी बुद्धिमत्ता और स्मार्टनेस का परिचय देने वाले दरोगा जी, जिनका व्यक्तित्व प्रभावशाली है।
                     </div>
-                    <div class="frame-name">Golden Luxury</div>
                 </div>
 
-                <div class="frame-option" data-frame="silver">
-                    <div class="frame-preview" style="border-color: #C0C0C0;">
-                        Silver
+                <div class="skill-card">
+                    <div class="skill-title">🗣️ प्रभावशाली आवाज़</div>
+                    <div class="skill-desc">
+                        इनकी आवाज़ में ऐसी धाक है कि अपराधी सुनते ही मैदान छोड़ कर भाग जाते हैं। यह इनकी विशिष्ट पहचान है।
                     </div>
-                    <div class="frame-name">Silver Elegance</div>
                 </div>
 
-                <div class="frame-option" data-frame="modern">
-                    <div class="frame-preview" style="border-color: #000000;">
-                        Modern
+                <div class="skill-card">
+                    <div class="skill-title">⚡ युवा एवं ऊर्जावान</div>
+                    <div class="skill-desc">
+                        देखने से उम्र का अंदाजा नहीं लगाया जा सकता। इनकी फुर्ती और ऊर्जा हमेशा बनी रहती है।
                     </div>
-                    <div class="frame-name">Modern Black</div>
                 </div>
-
-                <div class="frame-option" data-frame="vintage">
-                    <div class="frame-preview" style="border-color: #CD853F; border-style: double;">
-                        Vintage
-                    </div>
-                    <div class="frame-name">Vintage Royal</div>
-                </div>
-
-                <div class="frame-option" data-frame="colorful">
-                    <div class="frame-preview" style="border-color: #FF6B6B;">
-                        Colorful
-                    </div>
-                    <div class="frame-name">Colorful Vibrant</div>
-                </div>
-            </div>
-
-            <canvas id="photoCanvas"></canvas>
-
-            <div class="controls" id="controls" style="display: none;">
-                <button class="btn" onclick="downloadImage()">⬇️ डाउनलोड करें</button>
-                <button class="btn" onclick="resetImage()">🔄 नई फोटो</button>
             </div>
         </div>
 
-        <div class="footer">
-            <p>© 2024 Dinesh Mandal | Made with ❤️</p>
+        <div class="section">
+            <h2><span class="icon">📊</span> कार्य उपलब्धियां</h2>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">केस बोलने की क्षमता</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number">2-3</div>
+                    <div class="stat-label">प्रति माह केस निपटान</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">स्मार्टनेस लेवल</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number">⭐⭐⭐</div>
+                    <div class="stat-label">होनहार रेटिंग</div>
+                </div>
+            </div>
         </div>
+
+        <div class="section">
+            <h2><span class="icon">✨</span> विशिष्ट उपलब्धियां</h2>
+            
+            <ul class="achievements-list">
+                <li class="achievement-item">
+                    <div class="achievement-icon">🎯</div>
+                    <div class="achievement-text">
+                        <strong>घर बैठे केस सुलझाना:</strong> असाधारण चातुर्य के साथ बिना मैदान में गए ही लड़की बरामद करने की अनोखी क्षमता
+                    </div>
+                </li>
+
+                <li class="achievement-item">
+                    <div class="achievement-icon">💼</div>
+                    <div class="achievement-text">
+                        <strong>कुशल प्रबंधन:</strong> महीने में 10 केस बोलते हैं और 2-3 केस बड़ी दक्षता से निपटा देते हैं
+                    </div>
+                </li>
+
+                <li class="achievement-item">
+                    <div class="achievement-icon">🎖️</div>
+                    <div class="achievement-text">
+                        <strong>बिहार पुलिस के होनहार:</strong> विभाग में अपनी बुद्धिमत्ता और स्मार्टनेस के लिए जाने जाते हैं
+                    </div>
+                </li>
+
+                <li class="achievement-item">
+                    <div class="achievement-icon">👑</div>
+                    <div class="achievement-text">
+                        <strong>प्रभावशाली व्यक्तित्व:</strong> उनकी आवाज़ और व्यक्तित्व से अपराधी भयभीत हो जाते हैं
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>🌟 दरोगा दिनेश मंडल - बिहार पुलिस की गौरव 🌟</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">सत्य, न्याय और कर्तव्य के प्रति समर्पित</p>
+        </footer>
     </div>
 
     <script>
-        // Particles animation
+        // Animated particles
         const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 25; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
-            particle.style.width = Math.random() * 10 + 5 + 'px';
+            particle.style.width = Math.random() * 8 + 4 + 'px';
             particle.style.height = particle.style.width;
             particle.style.left = Math.random() * 100 + '%';
             particle.style.top = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
             particlesContainer.appendChild(particle);
         }
 
-        let currentImage = null;
-        let selectedFrame = 'classic';
-
-        const frames = {
-            classic: { color: '#8B4513', width: 30, style: 'solid' },
-            gold: { color: '#FFD700', width: 35, style: 'solid' },
-            silver: { color: '#C0C0C0', width: 30, style: 'solid' },
-            modern: { color: '#000000', width: 25, style: 'solid' },
-            vintage: { color: '#CD853F', width: 40, style: 'double' },
-            colorful: { color: '#FF6B6B', width: 30, style: 'solid' }
-        };
-
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    currentImage = new Image();
-                    currentImage.onload = function() {
-                        applyFrame();
-                    };
-                    currentImage.src = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        document.querySelectorAll('.frame-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.frame-option').forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-                selectedFrame = this.dataset.frame;
-                if (currentImage) {
-                    applyFrame();
+        // Smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        function applyFrame() {
-            const canvas = document.getElementById('photoCanvas');
-            const ctx = canvas.getContext('2d');
-            const frame = frames[selectedFrame];
+        // Add entrance animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-            const maxWidth = 800;
-            const maxHeight = 600;
-            let width = currentImage.width;
-            let height = currentImage.height;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-            if (width > maxWidth) {
-                height = (maxWidth / width) * height;
-                width = maxWidth;
-            }
-            if (height > maxHeight) {
-                width = (maxHeight / height) * width;
-                height = maxHeight;
-            }
-
-            const frameWidth = frame.width;
-            canvas.width = width + (frameWidth * 2);
-            canvas.height = height + (frameWidth * 2);
-
-            // Draw frame
-            ctx.fillStyle = frame.color;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            if (frame.style === 'double') {
-                ctx.fillStyle = '#FFFFFF';
-                ctx.fillRect(frameWidth / 3, frameWidth / 3, canvas.width - (frameWidth * 2 / 3), canvas.height - (frameWidth * 2 / 3));
-                ctx.fillStyle = frame.color;
-                ctx.fillRect(frameWidth / 2, frameWidth / 2, canvas.width - frameWidth, canvas.height - frameWidth);
-            }
-
-            // Add shadow effect
-            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-            ctx.shadowBlur = 20;
-            ctx.shadowOffsetX = 5;
-            ctx.shadowOffsetY = 5;
-
-            // Draw image
-            ctx.drawImage(currentImage, frameWidth, frameWidth, width, height);
-
-            canvas.style.display = 'block';
-            document.getElementById('controls').style.display = 'block';
-        }
-
-        function downloadImage() {
-            const canvas = document.getElementById('photoCanvas');
-            const link = document.createElement('a');
-            link.download = 'dinesh-mandal-framed-photo.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        }
-
-        function resetImage() {
-            currentImage = null;
-            document.getElementById('photoCanvas').style.display = 'none';
-            document.getElementById('controls').style.display = 'none';
-            document.getElementById('fileInput').value = '';
-        }
+        document.querySelectorAll('.skill-card, .stat-box, .achievement-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
